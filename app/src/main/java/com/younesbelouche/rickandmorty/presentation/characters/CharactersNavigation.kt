@@ -9,7 +9,7 @@ import kotlinx.serialization.Serializable
 data object CharactersDestination
 
 fun NavGraphBuilder.charactersScreen(
-    onNavigateToCharacterDetails: () -> Unit = {}
+    onNavigateToCharacterDetails: (characterId : Int) -> Unit
 ) {
     composable<CharactersDestination> {
         CharactersScreen(

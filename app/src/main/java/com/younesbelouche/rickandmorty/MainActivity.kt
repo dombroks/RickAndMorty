@@ -34,13 +34,12 @@ fun AppRoot() {
         startDestination = CharactersDestination
     ) {
         charactersScreen(
-            onNavigateToCharacterDetails = {
-                navController.navigateToCharacterDetailsScreen()
+            onNavigateToCharacterDetails = { characterId: Int ->
+                navController.navigateToCharacterDetailsScreen(characterId)
             }
         )
 
         characterDetailsScreen(
-            characterId = 1,
             onNavigateBack = {
                 navController.navigateToCharactersScreen()
             }
