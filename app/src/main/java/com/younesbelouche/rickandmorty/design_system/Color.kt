@@ -1,4 +1,4 @@
-package com.younesbelouche.rickandmorty.ui.theme
+package com.younesbelouche.rickandmorty.design_system
 
 import androidx.compose.ui.graphics.Color
 

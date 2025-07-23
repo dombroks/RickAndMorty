@@ -1,4 +1,4 @@
-package com.younesbelouche.rickandmorty.ui.theme
+package com.younesbelouche.rickandmorty.design_system
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

@@ -1,6 +1,5 @@
-package com.younesbelouche.rickandmorty.ui.theme
+package com.younesbelouche.rickandmorty.design_system
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
