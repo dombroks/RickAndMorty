@@ -19,7 +19,7 @@ import androidx.compose.ui.tooling.preview.Preview
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CharactersScreen(
-    onNavigateToCharacterDetails: () -> Unit
+    onItemClick: () -> Unit
 ) {
     Scaffold(
         topBar = {
@@ -38,7 +38,7 @@ fun CharactersScreen(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
-                Button(onClick = onNavigateToCharacterDetails) {
+                Button(onClick = onItemClick) {
                     Text(text = "Go to Character Details")
                 }
             }
@@ -49,7 +49,7 @@ fun CharactersScreen(
 @Preview
 @Composable
 fun CharactersScreenPreview() {
-    CharactersScreen(onNavigateToCharacterDetails = {})
+    CharactersScreen(onItemClick = {})
 }
 
 

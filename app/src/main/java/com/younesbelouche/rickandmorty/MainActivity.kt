@@ -40,6 +40,7 @@ fun AppRoot() {
         )
 
         characterDetailsScreen(
+            characterId = 1,
             onNavigateBack = {
                 navController.navigateToCharactersScreen()
             }

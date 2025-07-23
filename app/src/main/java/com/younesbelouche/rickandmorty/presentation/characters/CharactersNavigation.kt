@@ -13,7 +13,7 @@ fun NavGraphBuilder.charactersScreen(
 ) {
     composable<CharactersDestination> {
         CharactersScreen(
-            onNavigateToCharacterDetails = onNavigateToCharacterDetails
+            onItemClick = onNavigateToCharacterDetails
         )
     }
 }
