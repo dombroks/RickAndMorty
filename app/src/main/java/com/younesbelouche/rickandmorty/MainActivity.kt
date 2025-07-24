@@ -13,7 +13,10 @@ import com.younesbelouche.rickandmorty.presentation.characterdetails.navigateToC
 import com.younesbelouche.rickandmorty.presentation.characters.CharactersDestination
 import com.younesbelouche.rickandmorty.presentation.characters.charactersScreen
 import com.younesbelouche.rickandmorty.presentation.characters.navigateToCharactersScreen
+import dagger.hilt.android.AndroidEntryPoint
 
+
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

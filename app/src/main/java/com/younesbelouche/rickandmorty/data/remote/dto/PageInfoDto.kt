@@ -1,4 +1,4 @@
-package com.younesbelouche.rickandmorty.data.data_sources.remote.dto
+package com.younesbelouche.rickandmorty.data.remote.dto
 
 data class PageInfoDto(
     val count: Long,

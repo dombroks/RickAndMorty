@@ -63,6 +63,7 @@ dependencies {
     // Retrofit and OkHttp dependencies
     implementation(libs.retrofit)
     implementation(libs.gson)
+    implementation(libs.converter.gson)
     implementation(libs.okhttp)
 
     // Paging
