@@ -1,9 +1,9 @@
-package com.younesbelouche.rickandmorty.data.data_sources.remote.mapper
+package com.younesbelouche.rickandmorty.data.remote.mapper
 
-import com.younesbelouche.rickandmorty.data.data_sources.remote.dto.CharacterDto
-import com.younesbelouche.rickandmorty.data.data_sources.remote.dto.LocationDto
-import com.younesbelouche.rickandmorty.data.data_sources.remote.dto.OriginDto
-import com.younesbelouche.rickandmorty.data.data_sources.remote.dto.PageInfoDto
+import com.younesbelouche.rickandmorty.data.remote.dto.CharacterDto
+import com.younesbelouche.rickandmorty.data.remote.dto.LocationDto
+import com.younesbelouche.rickandmorty.data.remote.dto.OriginDto
+import com.younesbelouche.rickandmorty.data.remote.dto.PageInfoDto
 import com.younesbelouche.rickandmorty.domain.entities.Location
 import com.younesbelouche.rickandmorty.domain.entities.Origin
 import com.younesbelouche.rickandmorty.domain.entities.PageInfo
