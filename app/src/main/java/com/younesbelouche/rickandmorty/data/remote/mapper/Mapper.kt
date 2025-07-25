@@ -11,19 +11,20 @@ import com.younesbelouche.rickandmorty.domain.entities.Character
 
 object Mapper {
     fun CharacterDto.toDomain() = Character(
-        id = id,
-        name = name,
-        status = status,
-        species = species,
-        type = type,
-        gender = gender,
-        origin = originDto.toDomain(),
-        location = location.toDomain(),
-        image = image,
-        episode = episode,
-        url = url,
-        created = created
+        id = id ?: -1L,
+        name = name.orEmpty(),
+        status = status.orEmpty(),
+        species = species.orEmpty(),
+        type = type.orEmpty(),
+        gender = gender.orEmpty(),
+        origin = originDto?.toDomain() ?: Origin(name = "Unknown", url = ""),
+        location = location?.toDomain() ?: Location(name = "Unknown", url = ""),
+        image = image.orEmpty(),
+        episode = episode ?: emptyList(),
+        url = url.orEmpty(),
+        created = created.orEmpty()
     )
+
 
     fun Character.toDto() = CharacterDto(
         id = id,
