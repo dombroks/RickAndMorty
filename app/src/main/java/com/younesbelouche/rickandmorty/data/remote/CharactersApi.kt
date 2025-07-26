@@ -16,4 +16,10 @@ interface CharactersApi {
     suspend fun getCharacter(
         @Path("id") id: Int,
     ): CharacterDto
+
+    @GET("character")
+    suspend fun searchCharacter(
+        @Query("name") characterName: String,
+        @Query("page") page: Int = 1,
+    ): CharacterResponseDto
 }
