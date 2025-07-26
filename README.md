@@ -96,8 +96,8 @@ This project follows the **Clean Architecture** pattern with a modern, declarati
 
 ## 🔄 Future Improvements
 
-- Modularize by feature (`feature/home`, `feature/login`)
-- Apply the following code quality setup: ktlint, detekt, konsist, and spotless:
+- Modularization
+- Code quality setup: ktlint, detekt, konsist, and spotless:
     - [ktlint](https://github.com/pinterest/ktlint): Enforces Kotlin code style rules.
     - [spotless](https://github.com/diffplug/spotless): Runs ktlint to auto-format code
       consistently.
