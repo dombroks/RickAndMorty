@@ -41,7 +41,6 @@ class CharactersViewModel @Inject constructor(
                 searchByCharacterName(event.characterName)
             }
         }
-
     }
 
     private fun searchByCharacterName(characterName: String) {
