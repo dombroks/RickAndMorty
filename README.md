@@ -91,12 +91,12 @@ This project follows the **Clean Architecture** pattern with a modern, declarati
 
 - Modularize by feature (`feature/home`, `feature/login`)
 - Apply the following code quality setup: ktlint, detekt, konsist, and spotless:
-    - ktlint – Enforces Kotlin code style rules.
-    - spotless – Runs ktlint to auto-format code consistently.
-    - detekt – Performs static code analysis to catch code smells and potential bugs.
-    - konsist – Validates architecture and layering rules to enforce project structure.
+    - [ktlint](https://github.com/pinterest/ktlint): Enforces Kotlin code style rules.
+    - [spotless](https://github.com/diffplug/spotless): Runs ktlint to auto-format code consistently.
+    - [detekt](https://github.com/detekt/detekt): Performs static code analysis to catch code smells and potential bugs.
+    - [konsist](https://github.com/LemonAppDev/konsist): Validates architecture and layering rules to enforce project structure.
 
-  - Benefits of This Setup
+  - Benefits of This Setup:
         - Enforces consistent code formatting across the entire codebase.
         - Detects common bugs, bad practices, and complexity issues early.
         - Maintains a clean and scalable architecture by enforcing layering rules.
