@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -81,6 +82,8 @@ fun CharactersScreen(
 
     val characters = charactersState.characters.collectAsLazyPagingItems()
     var searchQuery by remember { mutableStateOf("") }
+
+    val listState = rememberLazyListState()
 
     Scaffold(
         topBar = {
@@ -154,6 +157,7 @@ fun CharactersScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding),
+            state = listState,
             contentPadding = PaddingValues(horizontal = 16.dp, vertical = 12.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
