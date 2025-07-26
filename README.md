@@ -90,6 +90,20 @@ This project follows the **Clean Architecture** pattern with a modern, declarati
 ## 🔄 Future Improvements
 
 - Modularize by feature (`feature/home`, `feature/login`)
-- Add `navigation/` package or module to manage screen routes centrally
+- Apply the following code quality setup: ktlint, detekt, konsist, and spotless:
+    - ktlint – Enforces Kotlin code style rules.
+    - spotless – Runs ktlint to auto-format code consistently.
+    - detekt – Performs static code analysis to catch code smells and potential bugs.
+    - konsist – Validates architecture and layering rules to enforce project structure.
+
+  - Benefits of This Setup
+        - Enforces consistent code formatting across the entire codebase.
+        - Detects common bugs, bad practices, and complexity issues early.
+        - Maintains a clean and scalable architecture by enforcing layering rules.
+        - Reduces manual effort in code reviews by automating style and structure checks.
+        - Scales with team and project growth, keeping code maintainable over time.
+        - Makes onboarding easier with clear, enforced coding standards.
+        - Prevents architecture drift and encourages separation of concerns.
+        - Fully customizable to match team's standards and guidelines.
 
 
