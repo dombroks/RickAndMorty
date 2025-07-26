@@ -10,4 +10,6 @@ interface CharactersRepository {
     fun getCharacter(
         id: Int,
     ): Flow<Character>
+
+    fun searchCharacter(characterName: String): Flow<PagingData<Character>>
 }

@@ -7,6 +7,7 @@ import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import androidx.paging.map
 import com.younesbelouche.rickandmorty.domain.usecases.GetCharactersUseCase
+import com.younesbelouche.rickandmorty.domain.usecases.SearchCharacterUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -21,7 +22,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CharactersViewModel @Inject constructor(
-    private val getCharactersUseCase: GetCharactersUseCase
+    private val getCharactersUseCase: GetCharactersUseCase,
+    private val searchCharacterUseCase: SearchCharacterUseCase
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(CharactersState())
@@ -44,7 +46,9 @@ class CharactersViewModel @Inject constructor(
     }
 
     private fun searchByCharacterName(characterName: String) {
-        TODO("Not yet implemented")
+        val charactersFlow =
+            searchCharacterUseCase(characterName = characterName).cachedIn(viewModelScope)
+        _state.value = _state.value.copy(characters = charactersFlow)
     }
 
     private fun getCharacters() {

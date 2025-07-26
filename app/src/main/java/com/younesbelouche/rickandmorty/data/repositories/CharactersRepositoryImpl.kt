@@ -8,6 +8,7 @@ import androidx.paging.filter
 import androidx.paging.map
 import com.younesbelouche.rickandmorty.core.Constants
 import com.younesbelouche.rickandmorty.data.remote.CharactersApi
+import com.younesbelouche.rickandmorty.data.remote.data_sources.CharacterSearchRemoteDataSource
 import com.younesbelouche.rickandmorty.data.remote.data_sources.CharactersRemoteDataSource
 import com.younesbelouche.rickandmorty.data.remote.mapper.Mapper.toDomain
 import com.younesbelouche.rickandmorty.domain.entities.Character
@@ -44,5 +45,24 @@ class CharactersRepositoryImpl @Inject constructor(
                 charactersApi.getCharacter(id = id).toDomain()
             )
         }
+    }
+
+    override fun searchCharacter(characterName: String): Flow<PagingData<Character>> {
+        return Pager(
+            config = PagingConfig(
+                pageSize = Constants.PAGE_SIZE,
+            ),
+            pagingSourceFactory = {
+                CharacterSearchRemoteDataSource(
+                    charactersApi = charactersApi,
+                    characterName = characterName
+                )
+            },
+        ).flow
+            .map { pagingData ->
+                pagingData.map { characterDto ->
+                    characterDto.toDomain()
+                }
+            }
     }
 }

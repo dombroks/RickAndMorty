@@ -3,6 +3,7 @@ package com.younesbelouche.rickandmorty.di
 import com.younesbelouche.rickandmorty.domain.repositories.CharactersRepository
 import com.younesbelouche.rickandmorty.domain.usecases.GetCharacterUseCase
 import com.younesbelouche.rickandmorty.domain.usecases.GetCharactersUseCase
+import com.younesbelouche.rickandmorty.domain.usecases.SearchCharacterUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -24,5 +25,9 @@ object UseCaseModule {
     fun provideGetCharacterUseCase(charactersRepository: CharactersRepository) =
         GetCharacterUseCase(charactersRepository = charactersRepository)
 
+    @Singleton
+    @Provides
+    fun provideSearchCharacterUseCase(charactersRepository: CharactersRepository) =
+        SearchCharacterUseCase(charactersRepository = charactersRepository)
 
 }
