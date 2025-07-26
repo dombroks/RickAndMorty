@@ -4,10 +4,13 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.younesbelouche.rickandmorty.data.remote.CharactersApi
 import com.younesbelouche.rickandmorty.data.remote.dto.CharacterDto
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class CharactersRemoteDataSource @Inject constructor(
-    private val charactersApi: CharactersApi
+    private val charactersApi: CharactersApi,
+    private val dispatcher: CoroutineDispatcher
 ) : PagingSource<Int, CharacterDto>() {
     override fun getRefreshKey(state: PagingState<Int, CharacterDto>): Int? {
         return state.anchorPosition?.let { position ->
@@ -21,12 +24,14 @@ class CharactersRemoteDataSource @Inject constructor(
         val prevKey = if (page == 1) null else page - 1
         val nextKey = page + 1
         return try {
-            val response = charactersApi.getCharacters(page = page)
-            LoadResult.Page(
-                data = response.results.distinctBy{it.name},
-                nextKey = nextKey,
-                prevKey = prevKey
-            )
+            withContext(dispatcher) {
+                val response = charactersApi.getCharacters(page = page)
+                LoadResult.Page(
+                    data = response.results.distinctBy { it.name },
+                    nextKey = nextKey,
+                    prevKey = prevKey
+                )
+            }
         } catch (e: Exception) {
             LoadResult.Error(e)
         }
