@@ -107,7 +107,6 @@ fun CharactersScreen(
                         )
                     )
 
-                    // Enhanced Search Bar
                     OutlinedTextField(
                         value = searchQuery,
                         onValueChange = { searchQuery = it },
@@ -196,12 +195,10 @@ fun CharacterItem(character: Character, onClick: () -> Unit) {
                 .padding(16.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // Character Image with enhanced styling
             CharacterImage(imageUrl = character.image)
 
             Spacer(modifier = Modifier.width(16.dp))
 
-            // Character Info with better typography
             Column(
                 modifier = Modifier.weight(1f),
                 verticalArrangement = Arrangement.spacedBy(6.dp)
@@ -230,7 +227,6 @@ fun CharacterItem(character: Character, onClick: () -> Unit) {
                 }
             }
 
-            // Arrow indicator
             Icon(
                 imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight,
                 contentDescription = "View character",
