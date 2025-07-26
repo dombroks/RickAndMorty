@@ -60,9 +60,14 @@ import coil.compose.AsyncImagePainter
 import coil.compose.rememberAsyncImagePainter
 import coil.request.ImageRequest
 import com.younesbelouche.rickandmorty.domain.entities.Character
+import kotlinx.coroutines.FlowPreview
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.flow.debounce
+import kotlinx.coroutines.flow.distinctUntilChanged
 
 
-@OptIn(ExperimentalMaterial3Api::class)
+@OptIn(ExperimentalMaterial3Api::class, FlowPreview::class)
 @Composable
 fun CharactersScreen(
     charactersState: CharactersState,
@@ -76,6 +81,26 @@ fun CharactersScreen(
 
     val characters = charactersState.characters.collectAsLazyPagingItems()
     var searchQuery by remember { mutableStateOf("") }
+
+    val searchQueryFlow = remember {
+        MutableStateFlow("")
+    }
+
+    LaunchedEffect(searchQuery) {
+        searchQueryFlow.value = searchQuery
+    }
+
+    LaunchedEffect(Unit) {
+        searchQueryFlow
+            .debounce(500)
+            .distinctUntilChanged()
+            .collectLatest { debouncedQuery ->
+                if (debouncedQuery.trim().isEmpty())
+                    charactersEvent(CharactersEvent.GetCharacters)
+                else
+                    charactersEvent(CharactersEvent.SearchByCharacterName(debouncedQuery))
+            }
+    }
 
     val listState = rememberLazyListState()
 
@@ -105,11 +130,6 @@ fun CharactersScreen(
                         value = searchQuery,
                         onValueChange = {
                             searchQuery = it
-                            if (it.trim().isNotEmpty()) {
-                                charactersEvent(CharactersEvent.SearchByCharacterName(it))
-                            } else {
-                                charactersEvent(CharactersEvent.GetCharacters)
-                            }
                         },
                         modifier = Modifier
                             .fillMaxWidth()
@@ -132,7 +152,6 @@ fun CharactersScreen(
                                 IconButton(
                                     onClick = {
                                         searchQuery = ""
-                                        charactersEvent(CharactersEvent.GetCharacters)
                                     }
                                 ) {
                                     Icon(
