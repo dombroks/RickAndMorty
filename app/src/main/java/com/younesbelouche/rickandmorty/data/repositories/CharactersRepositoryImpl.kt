@@ -1,8 +1,10 @@
 package com.younesbelouche.rickandmorty.data.repositories
 
+import android.util.Log
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
+import androidx.paging.filter
 import androidx.paging.map
 import com.younesbelouche.rickandmorty.core.Constants
 import com.younesbelouche.rickandmorty.data.remote.CharactersApi
@@ -18,7 +20,7 @@ import javax.inject.Inject
 class CharactersRepositoryImpl @Inject constructor(
     private val charactersApi: CharactersApi
 ) : CharactersRepository {
-    override fun getCharacters(page: Int): Flow<PagingData<Character>> {
+    override fun getCharacters(): Flow<PagingData<Character>> {
         return Pager(
             config = PagingConfig(
                 pageSize = Constants.PAGE_SIZE,

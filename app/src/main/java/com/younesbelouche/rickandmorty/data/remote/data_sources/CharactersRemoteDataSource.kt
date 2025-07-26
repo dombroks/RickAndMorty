@@ -23,7 +23,7 @@ class CharactersRemoteDataSource @Inject constructor(
         return try {
             val response = charactersApi.getCharacters(page = page)
             LoadResult.Page(
-                data = response.results.distinctBy { it.id },
+                data = response.results,
                 nextKey = nextKey,
                 prevKey = prevKey
             )

@@ -5,9 +5,7 @@ import com.younesbelouche.rickandmorty.domain.entities.Character
 import kotlinx.coroutines.flow.Flow
 
 interface CharactersRepository {
-    fun getCharacters(
-        page: Int,
-    ): Flow<PagingData<Character>>
+    fun getCharacters(): Flow<PagingData<Character>>
 
     fun getCharacter(
         id: Int,
