@@ -1,12 +1,14 @@
 # 📦 Project Package Structure (Clean Architecture + Jetpack Compose)
 
-This project follows the **Clean Architecture** pattern with a modern, declarative UI built using **Jetpack Compose**. Below is an overview of the main packages and their responsibilities.
+This project follows the **Clean Architecture** pattern with a modern, declarative UI built using *
+*Jetpack Compose**. Below is an overview of the main packages and their responsibilities.
 
 ---
 
 ## 🧱 Package Overview
 
 ### `domain/`
+
 - **Purpose**: Core business logic and app rules.
 - **Contents**:
     - Use cases (interactors)
@@ -17,6 +19,7 @@ This project follows the **Clean Architecture** pattern with a modern, declarati
 ---
 
 ### `data/`
+
 - **Purpose**: Responsible for data handling and repository implementations.
 - **Contents**:
     - API services (Retrofit, etc.)
@@ -28,17 +31,20 @@ This project follows the **Clean Architecture** pattern with a modern, declarati
 ---
 
 ### `presentation/`
+
 - **Purpose**: Composable UI and screen logic.
 - **Contents**:
     - Jetpack Compose screens (`@Composable` functions)
     - ViewModels (using `viewModel` or `hiltViewModel`)
     - UI state classes (`UiState`, `UiEvent`)
     - Navigation logic (if not extracted to a `navigation` package)
-- **Notes**: Communicates with `domain` via use cases and observes state via `StateFlow` or `LiveData`.
+- **Notes**: Communicates with `domain` via use cases and observes state via `StateFlow` or
+  `LiveData`.
 
 ---
 
 ### `design_system/`
+
 - **Purpose**: Centralized UI design and theming.
 - **Contents**:
     - App theme (`Theme.kt`, `Color.kt`, `Typography.kt`, `Shape.kt`)
@@ -49,6 +55,7 @@ This project follows the **Clean Architecture** pattern with a modern, declarati
 ---
 
 ### `core/`
+
 - **Purpose**: Shared, non-UI utilities.
 - **Contents**:
     - Kotlin extensions (e.g., `String.ext`, `Flow.ext`)
@@ -59,6 +66,7 @@ This project follows the **Clean Architecture** pattern with a modern, declarati
 ---
 
 ### `di/`
+
 - **Purpose**: Dependency Injection setup using Hilt.
 - **Contents**:
     - Hilt modules (`NetworkModule`, `RepositoryModule`, etc.)
@@ -67,13 +75,12 @@ This project follows the **Clean Architecture** pattern with a modern, declarati
 
 ---
 
-
-
 ## 🧩 Jetpack Compose Best Practices in This Structure
 
 - Use `State` and `StateFlow` for **unidirectional data flow** between ViewModel and Composables.
 - Place **all theme-related code** in `design_system` (including `MaterialTheme` wrappers).
-- Create **reusable Composables** like `PrimaryButton`, `AppTextField` in `design_system/components/`.
+- Create **reusable Composables** like `PrimaryButton`, `AppTextField` in
+  `design_system/components/`.
 - Avoid placing business logic in Composables—keep it in the ViewModel or domain layer.
 
 ---
@@ -92,18 +99,21 @@ This project follows the **Clean Architecture** pattern with a modern, declarati
 - Modularize by feature (`feature/home`, `feature/login`)
 - Apply the following code quality setup: ktlint, detekt, konsist, and spotless:
     - [ktlint](https://github.com/pinterest/ktlint): Enforces Kotlin code style rules.
-    - [spotless](https://github.com/diffplug/spotless): Runs ktlint to auto-format code consistently.
-    - [detekt](https://github.com/detekt/detekt): Performs static code analysis to catch code smells and potential bugs.
-    - [konsist](https://github.com/LemonAppDev/konsist): Validates architecture and layering rules to enforce project structure.
+    - [spotless](https://github.com/diffplug/spotless): Runs ktlint to auto-format code
+      consistently.
+    - [detekt](https://github.com/detekt/detekt): Performs static code analysis to catch code smells
+      and potential bugs.
+    - [konsist](https://github.com/LemonAppDev/konsist): Validates architecture and layering rules
+      to enforce project structure.
 
-  - Benefits of This Setup:
-        - Enforces consistent code formatting across the entire codebase.
-        - Detects common bugs, bad practices, and complexity issues early.
-        - Maintains a clean and scalable architecture by enforcing layering rules.
-        - Reduces manual effort in code reviews by automating style and structure checks.
-        - Scales with team and project growth, keeping code maintainable over time.
-        - Makes onboarding easier with clear, enforced coding standards.
-        - Prevents architecture drift and encourages separation of concerns.
-        - Fully customizable to match team's standards and guidelines.
+        - Benefits of This Setup:
+          - Enforces consistent code formatting across the entire codebase.
+          - Detects common bugs, bad practices, and complexity issues early.
+          - Maintains a clean and scalable architecture by enforcing layering rules.
+          - Reduces manual effort in code reviews by automating style and structure checks.
+          - Scales with team and project growth, keeping code maintainable over time.
+          - Makes onboarding easier with clear, enforced coding standards.
+          - Prevents architecture drift and encourages separation of concerns.
+          - Fully customizable to match team's standards and guidelines.
 
 
