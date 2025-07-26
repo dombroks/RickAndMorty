@@ -1,11 +1,11 @@
-# 📦 Project Package Structure (Clean Architecture + Jetpack Compose)
+# Project Package Structure
 
 This project follows the **Clean Architecture** pattern with a modern, declarative UI built using *
-*Jetpack Compose**. Below is an overview of the main packages and their responsibilities.
+*Jetpack Compose and MVI**. Below is an overview of the main packages and their responsibilities.
 
 ---
 
-## 🧱 Package Overview
+## Project Overview
 
 ### `domain/`
 
@@ -14,7 +14,7 @@ This project follows the **Clean Architecture** pattern with a modern, declarati
     - Use cases (interactors)
     - Domain models (pure Kotlin)
     - Repository interfaces
-- **Notes**: Contains **no Android or Compose dependencies**. Highly testable and platform-agnostic.
+- **Description**: Contains **no Android or Compose dependencies**. Highly testable and platform-agnostic.
 
 ---
 
@@ -26,7 +26,7 @@ This project follows the **Clean Architecture** pattern with a modern, declarati
     - Local data sources (Room, DataStore)
     - DTOs and mappers
     - Repository implementations
-- **Notes**: Depends on both `domain` and platform-specific libraries.
+- **Description**: Depends on both `domain` and platform-specific libraries.
 
 ---
 
@@ -38,8 +38,7 @@ This project follows the **Clean Architecture** pattern with a modern, declarati
     - ViewModels (using `viewModel` or `hiltViewModel`)
     - UI state classes (`UiState`, `UiEvent`)
     - Navigation logic (if not extracted to a `navigation` package)
-- **Notes**: Communicates with `domain` via use cases and observes state via `StateFlow` or
-  `LiveData`.
+- **Description**: Communicates with `domain` via use cases and observes state via `StateFlow`.
 
 ---
 
@@ -47,10 +46,9 @@ This project follows the **Clean Architecture** pattern with a modern, declarati
 
 - **Purpose**: Centralized UI design and theming.
 - **Contents**:
-    - App theme (`Theme.kt`, `Color.kt`, `Typography.kt`, `Shape.kt`)
+    - App theme (`Theme.kt`, `Color.kt`, `Typography.kt`)
     - Reusable Composables (buttons, cards, input fields)
-    - Design tokens and spacing
-- **Notes**: Promotes visual consistency and reusable UI components across the app.
+- **Description**: Visual consistency and reusable UI components across the app.
 
 ---
 
@@ -58,10 +56,9 @@ This project follows the **Clean Architecture** pattern with a modern, declarati
 
 - **Purpose**: Shared, non-UI utilities.
 - **Contents**:
-    - Kotlin extensions (e.g., `String.ext`, `Flow.ext`)
-    - Result wrappers (e.g., `Resource`, `ResultState`)
+    - Kotlin extensions
     - Constants and generic helper functions
-- **Notes**: Keep it UI-independent and lightweight.
+- **Description**: Shared stuff.
 
 ---
 
@@ -71,21 +68,12 @@ This project follows the **Clean Architecture** pattern with a modern, declarati
 - **Contents**:
     - Hilt modules (`NetworkModule`, `RepositoryModule`, etc.)
     - App-level or feature-level DI configuration
-- **Notes**: Allows dependency configuration in a centralized and testable way.
+- **Description**: Allows dependency configuration in a centralized and testable way.
 
 ---
 
-## 🧩 Jetpack Compose Best Practices in This Structure
 
-- Use `State` and `StateFlow` for **unidirectional data flow** between ViewModel and Composables.
-- Place **all theme-related code** in `design_system` (including `MaterialTheme` wrappers).
-- Create **reusable Composables** like `PrimaryButton`, `AppTextField` in
-  `design_system/components/`.
-- Avoid placing business logic in Composables—keep it in the ViewModel or domain layer.
-
----
-
-## ✅ Benefits of This Setup
+## Benefits of This Setup
 
 - Scalable, modular, and maintainable
 - Clearly separates concerns (UI vs Logic vs Data)
@@ -94,7 +82,7 @@ This project follows the **Clean Architecture** pattern with a modern, declarati
 
 ---
 
-## 🔄 Future Improvements
+## Future Improvements
 
 - Modularization
 - Code quality setup: ktlint, detekt, konsist, and spotless:
