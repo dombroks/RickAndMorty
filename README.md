@@ -7,7 +7,8 @@ This project follows the **Clean Architecture** pattern with a modern, declarati
 ## 
 A GIF image demonstrating the app's look (GIF's quality is not the best, but it is enough to get an idea of how the app looks):
 ![Rick and Morty GIF](https://raw.githubusercontent.com/dombroks/RickAndMorty/master/assets/rick_and_morty.gif)
-Note: The CI builds the app and uploads a debug APK.
+
+- Note: The CI builds the app and uploads a debug APK.
 
 ## Some key features
 - Clean Architecture
@@ -37,7 +38,7 @@ Note: The CI builds the app and uploads a debug APK.
 - **Purpose**: Responsible for data handling and repository implementations.
 - **Contents**:
     - API services (Retrofit, etc.)
-    - Local data sources (Room, DataStore)
+    - Remote data sources
     - DTOs and mappers
     - Repository implementations
 - **Description**: Depends on both `domain` and platform-specific libraries.
@@ -61,7 +62,7 @@ Note: The CI builds the app and uploads a debug APK.
 - **Purpose**: Centralized UI design and theming.
 - **Contents**:
     - App theme (`Theme.kt`, `Color.kt`, `Typography.kt`)
-    - Reusable Composables (buttons, cards, input fields)
+    - Reusable Composables
 - **Description**: Visual consistency and reusable UI components across the app.
 
 ---
@@ -95,7 +96,7 @@ Note: The CI builds the app and uploads a debug APK.
 
 ---
 
-## Good things to apply
+## Good things to apply next
 
 - Modularization, why? :
     - Faster builds
@@ -132,6 +133,12 @@ Note: The CI builds the app and uploads a debug APK.
     - Real-time crash reporting
     - Easy integration with existing Firebase setup
     - Provides insights into app stability and user experience
+
+- UI Tests, End-to-end tests, and Screenshot tests:
+    - Ensure UI behaves as expected across different devices and configurations
+    - Ensure UI matches design specifications
+    - Catch regressions early in the development cycle
+    - Validate user flows and interactions in a real device environment
 
 - And more...
 
