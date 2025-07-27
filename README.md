@@ -7,7 +7,7 @@ This project follows the **Clean Architecture** pattern with a modern, declarati
 ## 
 A GIF image demonstrating the app's look (GIF's quality is not the best, but it is enough to get an idea of how the app looks):
 ![Rick and Morty GIF](https://raw.githubusercontent.com/dombroks/RickAndMorty/master/assets/rick_and_morty.gif)
-
+Note: The CI builds the app and uploads a debug APK.
 
 ## Some key features
 - Clean Architecture
@@ -137,3 +137,12 @@ A GIF image demonstrating the app's look (GIF's quality is not the best, but it 
 
 ## Assumptions made in this project
 The only assumption made in this project is that the reader has a basic understanding of Kotlin and Android development concepts. The project is designed to be simple and complexities-free.
+
+## Instructions to run the project
+- Install prerequisites: Android Studio, JDK, and Git.
+- Clone the repo.
+- Open project in Android Studio (File > Open).
+- Let Gradle sync and install any missing dependencies or SDKs.
+- Set up an emulator or connect a real device.
+- Run the app by clicking the green Run button.
+- (Optional) Build an APK via Build > Build APK(s).
