@@ -1,9 +1,24 @@
 # Project Package Structure
 
 This project follows the **Clean Architecture** pattern with a modern, declarative UI built using *
-*Jetpack Compose and MVI**. Below is an overview of the main packages and their responsibilities.
+*Jetpack Compose and MVI**.
 
 ---
+## 
+A GIF image demonstrating the app's look (GIF's quality is not the best, but it is enough to get an idea of how the app looks):
+![Rick and Morty GIF](https://raw.githubusercontent.com/dombroks/RickAndMorty/master/assets/rick_and_morty.gif)
+
+- Note: The CI builds the app and uploads a debug APK.
+
+## Some key features
+- Clean Architecture
+- MVI
+- Kotlin Coroutines and Flow
+- Dependency Injection with Hilt
+- Jetpack Compose for UI
+- Unit testing
+- CI/CD with GitHub Actions
+- Cache interceptor for API calls
 
 ## Project Overview
 
@@ -23,7 +38,7 @@ This project follows the **Clean Architecture** pattern with a modern, declarati
 - **Purpose**: Responsible for data handling and repository implementations.
 - **Contents**:
     - API services (Retrofit, etc.)
-    - Local data sources (Room, DataStore)
+    - Remote data sources
     - DTOs and mappers
     - Repository implementations
 - **Description**: Depends on both `domain` and platform-specific libraries.
@@ -47,7 +62,7 @@ This project follows the **Clean Architecture** pattern with a modern, declarati
 - **Purpose**: Centralized UI design and theming.
 - **Contents**:
     - App theme (`Theme.kt`, `Color.kt`, `Typography.kt`)
-    - Reusable Composables (buttons, cards, input fields)
+    - Reusable Composables
 - **Description**: Visual consistency and reusable UI components across the app.
 
 ---
@@ -77,14 +92,19 @@ This project follows the **Clean Architecture** pattern with a modern, declarati
 
 - Scalable, modular, and maintainable
 - Clearly separates concerns (UI vs Logic vs Data)
-- Encourages reusable, consistent UI via `design_system`
 - Makes testing and debugging easier
 
 ---
 
-## Future Improvements
+## Good things to apply next
 
-- Modularization
+- Modularization, why? :
+    - Faster builds
+    - Clearer team ownership
+    - Cleaner architecture
+    - Smoother onboarding for new devs
+    - Well separated codebase
+
 - Code quality setup: ktlint, detekt, konsist, and spotless:
     - [ktlint](https://github.com/pinterest/ktlint): Enforces Kotlin code style rules.
     - [spotless](https://github.com/diffplug/spotless): Runs ktlint to auto-format code
@@ -104,5 +124,31 @@ This project follows the **Clean Architecture** pattern with a modern, declarati
           - Prevents architecture drift and encourages separation of concerns.
           - Fully customizable to match team's standards and guidelines.
 - Integrate Hilt in testing
+- Firebase app distribution:
+    - Fast delivery of build to testers
+    - Avoid sending builds via email or other channels
+    - Integrate with CI/CD for automated distribution
 
+- Firebase Crashlytics:
+    - Real-time crash reporting
+    - Easy integration with existing Firebase setup
+    - Provides insights into app stability and user experience
 
+- UI Tests, End-to-end tests, and Screenshot tests:
+    - Ensure UI behaves as expected across different devices and configurations
+    - Ensure UI matches design specifications
+    - Catch regressions early in the development cycle
+    - Validate user flows and interactions in a real device environment
+
+- And more...
+
+## Assumptions made in this project
+The only assumption made in this project is that it should be designed to be simple and complexities-free.
+
+## Instructions to run the project
+- Install prerequisites: Android Studio, JDK, and Git.
+- Clone the repo.
+- Open project in Android Studio (File > Open).
+- Let Gradle sync and install any missing dependencies or SDKs.
+- Set up an emulator or connect a real device.
+- Run the app by clicking the green Run button.
