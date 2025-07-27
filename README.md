@@ -1,9 +1,22 @@
 # Project Package Structure
 
 This project follows the **Clean Architecture** pattern with a modern, declarative UI built using *
-*Jetpack Compose and MVI**. Below is an overview of the main packages and their responsibilities.
+*Jetpack Compose and MVI**.
 
 ---
+## 
+A GIF image demonstrating the app's look (GIF's quality is not the best, but it is enough to get an idea of how the app looks):
+![GIF](assets/rick_and_morty.gif)
+
+## Some key features
+- Clean Architecture
+- MVI
+- Kotlin Coroutines and Flow
+- Dependency Injection with Hilt
+- Jetpack Compose for UI
+- Unit testing
+- CI/CD with GitHub Actions
+- Cache interceptor for API calls
 
 ## Project Overview
 
@@ -77,14 +90,19 @@ This project follows the **Clean Architecture** pattern with a modern, declarati
 
 - Scalable, modular, and maintainable
 - Clearly separates concerns (UI vs Logic vs Data)
-- Encourages reusable, consistent UI via `design_system`
 - Makes testing and debugging easier
 
 ---
 
-## Future Improvements
+## Good things to apply
 
-- Modularization
+- Modularization, why? :
+    - Faster builds
+    - Clearer team ownership
+    - Cleaner architecture
+    - Smoother onboarding for new devs
+    - Well separated codebase
+
 - Code quality setup: ktlint, detekt, konsist, and spotless:
     - [ktlint](https://github.com/pinterest/ktlint): Enforces Kotlin code style rules.
     - [spotless](https://github.com/diffplug/spotless): Runs ktlint to auto-format code
@@ -104,5 +122,17 @@ This project follows the **Clean Architecture** pattern with a modern, declarati
           - Prevents architecture drift and encourages separation of concerns.
           - Fully customizable to match team's standards and guidelines.
 - Integrate Hilt in testing
+- Firebase app distribution:
+    - Fast delivery of build to testers
+    - Avoid sending builds via email or other channels
+    - Integrate with CI/CD for automated distribution
 
+- Firebase Crashlytics:
+    - Real-time crash reporting
+    - Easy integration with existing Firebase setup
+    - Provides insights into app stability and user experience
 
+- And more...
+
+## Assumptions made in this project
+The only assumption made in this project is that the reader has a basic understanding of Kotlin and Android development concepts. The project is designed to be simple and complexities-free.
