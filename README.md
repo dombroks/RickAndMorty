@@ -6,7 +6,8 @@ This project follows the **Clean Architecture** pattern with a modern, declarati
 ---
 ## 
 A GIF image demonstrating the app's look (GIF's quality is not the best, but it is enough to get an idea of how the app looks):
-![Rick and Morty GIF](https://raw.githubusercontent.com/dombroks/RickAndMorty/master/assets/rick_and_morty.gif)
+![Rick and Morty GIF](https://github.com/dombroks/RickAndMorty/blob/master/assets/rick_and_morty.gif?raw=true)
+
 
 - Note: The CI builds the app and uploads a debug APK.
 
