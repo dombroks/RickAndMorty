@@ -103,5 +103,6 @@ This project follows the **Clean Architecture** pattern with a modern, declarati
           - Makes onboarding easier with clear, enforced coding standards.
           - Prevents architecture drift and encourages separation of concerns.
           - Fully customizable to match team's standards and guidelines.
+- Integrate Hilt in testing
 
 
