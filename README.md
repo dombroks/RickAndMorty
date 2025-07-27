@@ -141,6 +141,11 @@ A GIF image demonstrating the app's look (GIF's quality is not the best, but it 
     - Catch regressions early in the development cycle
     - Validate user flows and interactions in a real device environment
 
+- Flavour support:
+    - Allows building different app versions with specific features or themes
+    - Useful for A/B testing, feature toggling, or regional variations
+    - Can be integrated with CI/CD for automated builds of different flavours
+
 - And more...
 
 ## Assumptions made in this project
