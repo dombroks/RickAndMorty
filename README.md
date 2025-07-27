@@ -143,7 +143,7 @@ A GIF image demonstrating the app's look (GIF's quality is not the best, but it 
 - And more...
 
 ## Assumptions made in this project
-The only assumption made in this project is that the reader has a basic understanding of Kotlin and Android development concepts. The project is designed to be simple and complexities-free.
+The only assumption made in this project is that it should be designed to be simple and complexities-free.
 
 ## Instructions to run the project
 - Install prerequisites: Android Studio, JDK, and Git.
@@ -152,4 +152,3 @@ The only assumption made in this project is that the reader has a basic understa
 - Let Gradle sync and install any missing dependencies or SDKs.
 - Set up an emulator or connect a real device.
 - Run the app by clicking the green Run button.
-- (Optional) Build an APK via Build > Build APK(s).
